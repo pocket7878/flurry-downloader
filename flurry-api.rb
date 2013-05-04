@@ -6,8 +6,8 @@ require 'uri'
 require 'date'
 
 API_BASE = "api.flurry.com"
-APIKEY = "KNSZ543WH8JJJWW38BRG"
-APICODE = "89JCJTZYK5MHWKGTR452"
+APIKEY = "Your api key here"
+APICODE = "Your api code here"
 
 def createBasicMetricsAPIURL(startDate, endDate)
   "/eventMetrics/Summary?apiAccessCode="+APICODE+
@@ -118,8 +118,8 @@ def requestYesterdayData()
     sleep 1
     requestEventData(eventName, Date.today-1, Date.today-1)
   }
-  writeEvent2DataToFile(eventInfos, "/var/www/html/flurry-logs/Event2/Event2_Daily_"+(Date.today-1).to_s+".csv")
-  writeParameterDataToFile(eventInfos, "/var/www/html/flurry-logs/Parameter/Parameter_Daily_"+(Date.today-1).to_s+".csv")
+  writeEvent2DataToFile(eventInfos, "/path/to/your/event2/log/file")
+  writeParameterDataToFile(eventInfos, "/path/to/your/parameter/data/log/file")
 end
 
 def requestWeeklyData()
@@ -131,8 +131,8 @@ def requestWeeklyData()
     sleep 1
     requestEventData(eventName, Date.today-7, Date.today-1)
   }
-  writeEvent2DataToFile(eventInfos, "/var/www/html/flurry-logs/Event2/Event2_Weekly_"+(Date.today-7).to_s+"_"+(Date.today-1).to_s+".csv")
-  writeParameterDataToFile(eventInfos, "/var/www/html/flurry-logs/Parameter/Parameter_Weekly_"+(Date.today-7).to_s+"_"+(Date.today-1).to_s+".csv")
+  writeEvent2DataToFile(eventInfos, "/path/to/your/event2/log/file")
+  writeParameterDataToFile(eventInfos, "/path/to/your/parameter/data/log/file")
 end
 
 def requestMonthlyData()
@@ -146,8 +146,8 @@ def requestMonthlyData()
     sleep 1
     requestEventData(eventName, startDate, endDate)
   }
-  writeEvent2DataToFile(eventInfos, "/var/www/html/flurry-logs/Event2/Event2_Monthly_"+startDate.to_s+"_"+endDate.to_s+".csv")
-  writeParameterDataToFile(eventInfos, "/var/www/html/flurry-logs/Parameter/Parameter_Monthly_"+startDate.to_s+"_"+endDate.to_s+".csv")
+  writeEvent2DataToFile(eventInfos, "/path/to/your/event2/log/file")
+  writeParameterDataToFile(eventInfos, "/path/to/your/parameter/data/log/file")
 end
 
 def requestAllData()
@@ -161,8 +161,8 @@ def requestAllData()
     sleep 1
     requestEventData(eventName, startDate, endDate)
   }
-  writeEvent2DataToFile(eventInfos, "/var/www/html/flurry-logs/Event2/Event2_Total_"+endDate.to_s+".csv")
-  writeParameterDataToFile(eventInfos, "/var/www/html/flurry-logs/Parameter/Parameter_Total_"+endDate.to_s+".csv")
+  writeEvent2DataToFile(eventInfos, "/path/to/your/event2/log/file")
+  writeParameterDataToFile(eventInfos, "/path/to/your/parameter/data/log/file")
 end
 
 
